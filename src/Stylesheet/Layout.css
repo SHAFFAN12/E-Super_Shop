@@ -36,7 +36,7 @@ nav ul li {
 
 nav ul li{
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 nav ul li span{
     position: relative;
@@ -55,4 +55,20 @@ nav ul li:hover span{
 }
 
 
+/* Animations.css */
 
+ .animate-navigation span {
+    display: inline-block;
+    transform: translateY(100%);
+    /* opacity: 0; */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .animate-navigation li a:hover span {
+    transform: translateY(0);
+    opacity: 1;
+  } 
+
+
+
+ 

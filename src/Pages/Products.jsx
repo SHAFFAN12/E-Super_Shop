@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Products = ({ tShirts }) => {
   return (
-    <div className="t-shirt-container flex flex-wrap space-x-10 justify-center">
+    <div className="t-shirt-container flex flex-wrap space-x-10 justify-center mt-8">
       {tShirts.map((tShirt, index) => (
-        <div key={index} className="t-shirt w-[25rem] flex flex-col justify-center items-center border-2 border-black   ">
+        <div key={index} className="t-shirt w-[25rem] flex flex-col justify-center items-center border-2  drop-shadow-2xl ">
           <h3 className='font-bold text-2xl' >{tShirt.name}</h3>
           <Link to={`/product/${tShirt.name}`}>
             <img src={tShirt.images[0].image} alt={tShirt.name} />

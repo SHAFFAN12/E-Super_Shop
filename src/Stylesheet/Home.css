@@ -292,3 +292,30 @@
     }
 
 }
+
+
+
+.homepage-topics__headline{
+    position: relative;
+    cursor: pointer;
+    width: max-content;
+    font-size: 20px;
+    margin: 10px auto;
+  }
+  .homepage-topics__headline::after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    height: 4px;
+    width: 100%;
+    left: 0;
+    background-color: black;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+  }
+  .homepage-topics__headline:hover::after{
+    transform: scaleX(1);
+  } 
+  
+  

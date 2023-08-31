@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';  // Import useEffect
+import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Logout from './Pages/Logout';
 import { useAuth0 } from '@auth0/auth0-react';
 import logo from './assets/logo.png';
-import "../src/Stylesheet/Layout.css"
+import "../src/Stylesheet/Layout.css";
+
+
 const Layout = () => {
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,9 +14,12 @@ const Layout = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  useEffect(() => {  // Use useEffect to run the added code snippet
-    let text = document.querySelectorAll('nav ul li').forEach(text => {
-      text.innerHTML = text.innerText.split('').map((letters, i) => `<span style="transition-delay:${i * 60}ms;">${letters}</span>`).join('');
+  useEffect(() => {
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.innerHTML = link.innerText
+        .split('')
+        .map((letters, i) => `<span style="transition-delay:${i * 60}ms;">${letters}</span>`)
+        .join('');
     });
   }, []);
 
@@ -40,7 +45,7 @@ const Layout = () => {
             </button>
           </div>
 
-          <ul className={`hidden lg:flex space-x-6 items-center`}>
+          <ul className={`hidden lg:flex space-x-6 items-center animate-navigation`}>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/products">Products</Link></li>
             <li><Link to="/cartlist">Cartlist</Link></li>
@@ -59,7 +64,7 @@ const Layout = () => {
           ) : (
             <button
               onClick={loginWithRedirect}
-              className='p-2 px-3 bg-blue-500 text-white rounded-lg    max-sm:hidden '
+              className='p-2 px-3 bg-blue-500 text-white rounded-lg max-sm:hidden'
             >
               Login
             </button>
@@ -67,7 +72,7 @@ const Layout = () => {
         </div>
 
         <div
-          className={`  lg:hidden mt-3 ${mobileMenuOpen ? 'block' : 'hidden'}`}
+          className={`lg:hidden mt-3 ${mobileMenuOpen ? 'block' : 'hidden'}`}
         >
           <ul className='space-y-3'>
             <li><Link to="/" className='block'>Home</Link></li>
